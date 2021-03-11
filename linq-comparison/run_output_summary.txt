@@ -1,0 +1,40 @@
+// * Summary *
+
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
+.NET Core SDK=5.0.200
+  [Host]     : .NET Core 5.0.3 (CoreCLR 5.0.321.7212, CoreFX 5.0.321.7212), X64 RyuJIT
+  DefaultJob : .NET Core 5.0.3 (CoreCLR 5.0.321.7212, CoreFX 5.0.321.7212), X64 RyuJIT
+
+
+|                                                    Method |  Size |      Mean |    Error |   StdDev |  Gen 0 |  Gen 1 | Gen 2 | Allocated |
+|---------------------------------------------------------- |------ |----------:|---------:|---------:|-------:|-------:|------:|----------:|
+|                  GetCountOfAlcoholicDrinksUsingWhereCount | 10000 |  47.83 us | 0.077 us | 0.068 us |      - |      - |     - |      72 B |
+|                       GetCountOfAlcoholicDrinksUsingCount | 10000 | 128.06 us | 1.717 us | 1.607 us |      - |      - |     - |      40 B |
+|                     GetCountOfAlcoholicDrinksUsingForEach | 10000 |  72.96 us | 0.203 us | 0.180 us |      - |      - |     - |         - |
+|         GetCountOfAlcoholicDrinksUsingForAndCountProperty | 10000 |  35.26 us | 0.695 us | 0.744 us |      - |      - |     - |         - |
+|           GetCountOfAlcoholicDrinksUsingForAndCountMethod | 10000 |  96.07 us | 0.250 us | 0.221 us |      - |      - |     - |         - |
+|          GetCountOfAlcoholicDrinksUsingParallelWhereCount | 10000 | 125.13 us | 0.624 us | 0.553 us | 4.1504 | 0.2441 |     - |   35049 B |
+|               GetCountOfAlcoholicDrinksUsingParallelCount | 10000 | 122.50 us | 1.717 us | 1.522 us | 4.2725 | 0.2441 |     - |   35048 B |
+|             GetCountOfAlcoholicDrinksUsingParallelForEach | 10000 | 124.17 us | 1.116 us | 1.044 us | 1.7090 |      - |     - |   14707 B |
+| GetCountOfAlcoholicDrinksUsingParallelForAndCountProperty | 10000 | 117.06 us | 1.009 us | 0.944 us | 1.7090 |      - |     - |   13919 B |
+|   GetCountOfAlcoholicDrinksUsingParallelForAndCountMethod | 10000 | 118.54 us | 1.163 us | 1.088 us | 1.7090 |      - |     - |   14366 B |
+|                  GetCountOfAlcoholicDrinksUsingWhereCount | 20000 | 107.49 us | 0.904 us | 0.801 us |      - |      - |     - |      72 B |
+|                       GetCountOfAlcoholicDrinksUsingCount | 20000 | 263.39 us | 2.114 us | 1.874 us |      - |      - |     - |      40 B |
+|                     GetCountOfAlcoholicDrinksUsingForEach | 20000 | 149.64 us | 0.414 us | 0.367 us |      - |      - |     - |         - |
+|         GetCountOfAlcoholicDrinksUsingForAndCountProperty | 20000 |  99.29 us | 0.234 us | 0.196 us |      - |      - |     - |         - |
+|           GetCountOfAlcoholicDrinksUsingForAndCountMethod | 20000 | 199.94 us | 1.183 us | 1.107 us |      - |      - |     - |         - |
+|          GetCountOfAlcoholicDrinksUsingParallelWhereCount | 20000 | 131.98 us | 0.504 us | 0.447 us | 4.1504 | 0.2441 |     - |   35048 B |
+|               GetCountOfAlcoholicDrinksUsingParallelCount | 20000 | 132.83 us | 0.603 us | 0.503 us | 4.1504 | 0.2441 |     - |   35048 B |
+|             GetCountOfAlcoholicDrinksUsingParallelForEach | 20000 | 147.49 us | 0.682 us | 0.638 us | 1.9531 |      - |     - |   15856 B |
+| GetCountOfAlcoholicDrinksUsingParallelForAndCountProperty | 20000 | 145.15 us | 0.485 us | 0.453 us | 1.7090 |      - |     - |   15385 B |
+|   GetCountOfAlcoholicDrinksUsingParallelForAndCountMethod | 20000 | 145.50 us | 0.681 us | 0.637 us | 1.7090 |      - |     - |   15495 B |
+|                  GetCountOfAlcoholicDrinksUsingWhereCount | 60000 | 319.62 us | 1.148 us | 1.018 us |      - |      - |     - |      72 B |
+|                       GetCountOfAlcoholicDrinksUsingCount | 60000 | 757.80 us | 5.212 us | 4.069 us |      - |      - |     - |      40 B |
+|                     GetCountOfAlcoholicDrinksUsingForEach | 60000 | 477.74 us | 0.991 us | 0.927 us |      - |      - |     - |         - |
+|         GetCountOfAlcoholicDrinksUsingForAndCountProperty | 60000 | 305.39 us | 0.478 us | 0.399 us |      - |      - |     - |         - |
+|           GetCountOfAlcoholicDrinksUsingForAndCountMethod | 60000 | 601.02 us | 1.105 us | 0.863 us |      - |      - |     - |         - |
+|          GetCountOfAlcoholicDrinksUsingParallelWhereCount | 60000 | 146.63 us | 0.489 us | 0.434 us | 4.1504 | 0.2441 |     - |   35049 B |
+|               GetCountOfAlcoholicDrinksUsingParallelCount | 60000 | 145.81 us | 0.742 us | 0.658 us | 4.1504 | 0.2441 |     - |   35049 B |
+|             GetCountOfAlcoholicDrinksUsingParallelForEach | 60000 | 213.27 us | 1.035 us | 0.968 us | 2.1973 |      - |     - |   18452 B |
+| GetCountOfAlcoholicDrinksUsingParallelForAndCountProperty | 60000 | 218.97 us | 0.838 us | 0.784 us | 2.1973 |      - |     - |   18063 B |
+|   GetCountOfAlcoholicDrinksUsingParallelForAndCountMethod | 60000 | 215.68 us | 0.557 us | 0.465 us | 2.1973 |      - |     - |   18310 B |
